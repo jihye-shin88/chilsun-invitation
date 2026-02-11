@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>신윤열 님 칠순 초대장</title>
+
+  <!-- ✅ 카카오톡/문자 미리보기 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="신윤열 님의 칠순연에 초대합니다" />
+  <meta property="og:description" content="2026년 3월 8일 (일요일) 12시 · 일품진진수라 광화문점" />
+  <!-- 중요: 카카오는 og:image에 '절대주소'를 권장/요구하는 경우가 많습니다.
+       배포 후 아래 값을 본인 주소로 바꿔주세요. 예) https://<아이디>.github.io/cover.png -->
+  <meta property="og:image" content="cover.png" />
+
+  <meta name="description" content="신윤열 님의 칠순연에 초대합니다. 2026년 3월 8일(일) 12시 · 일품진진수라 광화문점" />
+
+  <style>
+    :root{
+      --ink:#2b2b2b;
+      --cardW: 720px;
+      --safeInset: 10%; /* ✅ cover 테두리 안쪽 여백 */
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
+      color:var(--ink);
+      background:#f7f3ee;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px;
+    }
+
+    /* ✅ cover(1024x1024) 비율에 맞춰 '정사각' 카드로 고정
+       -> 카카오 인앱브라우저에서도 커버 밖으로 내용이 안 튀어나감 */
+    .sheet{
+      width:min(var(--cardW), 100%);
+      aspect-ratio: 1 / 1;
+      position:relative;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow: 0 18px 55px rgba(0,0,0,.12);
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
+    }
+
+    /* cover는 카드 전체를 정확히 채움(잘림 없음) */
+    .bg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit: cover; /* 정사각 비율 동일이라 잘림 없음 */
+      object-position:center;
+      pointer-events:none;
+      user-select:none;
+    }
+
+    /* 가독성: 아주 약한 레이어 */
+    .veil{
+      position:absolute; inset:0;
+      background: rgba(255,255,255,.10);
+      pointer-events:none;
+    }
+
+    /* ✅ 모든 콘텐츠를 cover의 '안쪽(테두리 안)'에만 배치 */
+    .safe{
+      position:absolute;
+      inset: var(--safeInset);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:12px;
+    }
+
+    .topline{
+      letter-spacing:.14em;
+      font-weight:700;
+      font-size:12px;
+      color:rgba(0,0,0,.45);
+    }
+
+    h1{
+      margin:0;
+      font-size:30px;
+      letter-spacing:-0.7px;
+      font-weight:850;
+      line-height:1.22;
+    }
+
+    .subtitle{
+      margin:0;
+      color:rgba(0,0,0,.55);
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .host-wrap{
+      width:min(300px, 70%);
+      aspect-ratio:1/1;
+      border-radius:999px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.12);
+      box-shadow: 0 12px 28px rgba(0,0,0,.10);
+      background: rgba(255,255,255,.55);
+      flex:0 0 auto;
+    }
+    .host-wrap img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .divider{
+      width: min(420px, 92%);
+      height:1px;
+      background: rgba(0,0,0,.14);
+    }
+
+    .info{
+      width:min(520px, 100%);
+      display:grid;
+      gap:10px;
+      font-size:16px;
+      text-align:left;
+      background: rgba(255,255,255,.40);
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:16px;
+      padding:14px 14px;
+      backdrop-filter: blur(6px);
+    }
+    .row{display:flex; gap:10px; align-items:flex-start;}
+    .k{width:70px; font-weight:900; color:#111827; flex:0 0 auto;}
+    .v{flex:1; line-height:1.55; color:#374151; word-break:keep-all;}
+
+    .btns{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    a.btn, button.btn{
+      border:1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.82);
+      color:#111827;
+      padding:12px 14px;
+      border-radius:14px;
+      font-weight:900;
+      text-decoration:none;
+      cursor:pointer;
+      backdrop-filter: blur(6px);
+      -webkit-tap-highlight-color: transparent;
+    }
+    a.btn.primary{
+      background: rgba(244,114,182,.18);
+      border-color: rgba(244,114,182,.25);
+    }
+
+    .foot{
+      font-size:13px;
+      color:rgba(0,0,0,.48);
+      line-height:1.6;
+    }
+
+    /* ✅ 모바일에서 더 잘 맞게 축소 + 안전여백 조금 늘림 */
+    @media (max-width:420px){
+      :root{ --safeInset: 11%; }
+      h1{font-size:24px}
+      .subtitle{font-size:14px}
+      .topline{font-size:11px}
+      .k{width:56px}
+      .host-wrap{width:min(240px, 78%);}
+      .info{font-size:15px; padding:12px 12px}
+      a.btn, button.btn{padding:12px 14px; width:min(240px, 100%);}
+      .btns{gap:8px}
+    }
+
+    /* 아주 작은 화면(구형 SE 등)에서도 안 튀도록 더 축소 */
+    @media (max-width:360px){
+      :root{ --safeInset: 12%; }
+      h1{font-size:22px}
+      .host-wrap{width:min(220px, 80%);}
+      .info{font-size:14px}
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet" aria-label="칠순 초대장">
+    <img class="bg" src="cover.png" alt="" aria-hidden="true" />
+    <div class="veil" aria-hidden="true"></div>
+
+    <div class="safe">
+      <div class="topline">70TH BIRTHDAY INVITATION</div>
+
+      <h1>신윤열 님의<br/>칠순연에 초대합니다</h1>
+
+      <p class="subtitle">
+        소중한 분들을 모시고<br/>
+        감사의 마음을 나누고자 합니다.
+      </p>
+
+      <div class="host-wrap" id="hostBox">
+        <img id="hostImg" src="host.png" alt="주인공 사진" />
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <section class="info" aria-label="일시 및 장소 정보">
+        <div class="row">
+          <div class="k">일시</div>
+          <div class="v">2026년 3월 8일 (일요일) 12시</div>
+        </div>
+        <div class="row">
+          <div class="k">장소</div>
+          <div class="v">
+            <div style="font-weight:900">일품진진수라 광화문점</div>
+            <div>서울 종로구 종로5길 7 타워8빌딩 지하 2층</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="btns">
+        <a class="btn primary" href="https://naver.me/5A3pmHDy" target="_blank" rel="noopener">네이버 지도 열기</a>
+        <button class="btn" type="button" id="copyBtn">주소 복사</button>
+      </div>
+
+      <div class="foot">함께해 주시면 큰 기쁨이겠습니다.</div>
+    </div>
+  </main>
+
+  <script>
+    const addr = "서울 종로구 종로5길 7 타워8빌딩 지하 2층";
+    async function copyAddr(){
+      try{
+        await navigator.clipboard.writeText(addr);
+        alert("주소를 복사했어요!");
+      }catch{
+        const ta = document.createElement("textarea");
+        ta.value = addr;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        alert("주소를 복사했어요!");
+      }
+    }
+    document.getElementById("copyBtn").addEventListener("click", copyAddr);
+
+    // host 파일명 실수 대비
+    const hostImg = document.getElementById("hostImg");
+    const hostBox = document.getElementById("hostBox");
+    hostImg.onerror = () => { hostBox.style.display = "none"; };
+  </script>
+</body>
+</html>
